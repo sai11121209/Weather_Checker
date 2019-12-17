@@ -1,32 +1,23 @@
-import ui,requests,location
+import ui,requests,location,csv
 from PIL import Image
 
 
 def update(sender):
 	#背景
 	sender.superview['BackImage'].image = image
-	
-	Title = sender.superview['Title']
-	Title.text = data['title']
-	Today = sender.superview['Today Weather']
-	Today.text = weatherdata['today']
-	Tomorrow = sender.superview['Tomorrow Weather']
-	Tomorrow.text = weatherdata['tomorrow']
+	sender.superview['Title'].text = data['title']
+	sender.superview['Today Weather'].text = weatherdata['today']
+	sender.superview['Tomorrow Weather'].text = weatherdata['tomorrow']
 	DATomorrow = sender.superview['DATomorrow Weather']
 	if len(weatherdata) == 3:
 		DATomorrow.text = weatherdata['DAtomorrow']
 	else:
 		DATomorrow.text = '明後日情報取得中'
-	Details = sender.superview['Details']
-	Details.text = data['description']['text']
-	UpdateDate = sender.superview['Update Date']
-	UpdateDate.text = '最終更新時刻:'+data['publicTime'].split('+')[0]
-	GpsData = sender.superview['GpsData']
-	GpsData.text = '現在地:'+ungeodata['result']['prefecture']['pname']+ungeodata['result']['municipality']['mname']+ungeodata['result']['local'][0]['section']
-	Copyright = sender.superview['Copyright']
-	Copyright.text = data['copyright']['provider'][0]['name']+':'+data['copyright']['provider'][0]['link']+'\n'+data['copyright']['title']+':'+data['copyright']['link']
-	CopyrightGeodata = sender.superview['CopyrightGeodata']
-	CopyrightGeodata.text = ungeodata['meta'][0]['content']
+	sender.superview['Details'].text = data['description']['text']
+	sender.superview['Update Date'].text = '最終更新時刻:'+data['publicTime'].split('+')[0]
+	sender.superview['GpsData'].text = '現在地:'+ungeodata['result']['prefecture']['pname']+ungeodata['result']['municipality']['mname']
+	sender.superview['Copyright'].text = data['copyright']['provider'][0]['name']+':'+data['copyright']['provider'][0]['link']+'\n'+data['copyright']['title']+':'+data['copyright']['link']
+	sender.superview['CopyrightGeodata'].text = ungeodata['meta'][0]['content']
 
 def end(sender):
 	sender.close()
@@ -36,7 +27,7 @@ def getgps():
 	gpsdata = location.get_location()
 	location.stop_updates()
 	return gpsdata
-
+	
 def getungeo(gpsdata):
 	geourl = 'https://www.finds.jp/ws/rgeocode.php?json&lat='+str(gpsdata['latitude'])+'&lon='+str(gpsdata['longitude'])
 	ungeodata = requests.get(geourl).json()
@@ -53,17 +44,30 @@ def selectimage(data):
 		if type in data:
 			return image[type]
 			
-def setarea(datas,pcode):
-	import csv
-	for data in datas:
-		if len(str(data[0]))%2==0:
-			if ''.join(list(str(data[0]))[0:2]) in str(pcode):
-				return str(data[0])
+def csvreader(fileName):
+	data = []
+	with open(fileName+'.csv',encoding = 'utf-8') as file:
+		reader = csv.reader(file)
+		for row in reader:
+			data.append(row)
+		return data
 	
+def setarea(datas,pcode):
+	for data in datas:
+		if len(pcode)==2:
+			if ''.join(data[0][0:2]) in pcode:
+				return data[0]
+		if len(pcode)==1:
+			if data[0][0] in pcode:
+				print(data[0])
+				return str(data[0])
+
+locationlist = csvreader('wpd')
 ungeodata = getungeo(getgps())
-print(ungeodata['result']['prefecture']['pname']+ungeodata['result']['municipality']['mname']+ungeodata['result']['local'][0]['section'])
+print(ungeodata['result']['prefecture']['pname']+ungeodata['result']['municipality']['mname'])
 weatherurl = 'http://weather.livedoor.com/forecast/webservice/json/v1?city='
-data = requests.get(weatherurl+setarea([[11000,'関内'],[130010,'東京'],[110010,'さいたま']],ungeodata['result']['prefecture']['pcode'])).json()
+
+data = requests.get(weatherurl+setarea(locationlist,str(int(ungeodata['result']['prefecture']['pcode'])))).json()
 
 str = []
 #ロケーションurl取得

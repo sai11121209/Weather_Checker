@@ -1,4 +1,4 @@
-import ui,requests,location,csv
+import ui,requests,location
 from PIL import Image
 
 
@@ -52,11 +52,19 @@ def selectimage(data):
 	for type in types:
 		if type in data:
 			return image[type]
+			
+def setarea(datas,pcode):
+	import csv
+	for data in datas:
+		if len(str(data[0]))%2==0:
+			if ''.join(list(str(data[0]))[0:2]) in str(pcode):
+				return str(data[0])
 	
 ungeodata = getungeo(getgps())
-print(ungeodata['result']['municipality']['mname'])
+print(ungeodata['result']['prefecture']['pname']+ungeodata['result']['municipality']['mname']+ungeodata['result']['local'][0]['section'])
 weatherurl = 'http://weather.livedoor.com/forecast/webservice/json/v1?city='
-data = requests.get(weatherurl+'130010').json()
+data = requests.get(weatherurl+setarea([[11000,'関内'],[130010,'東京'],[110010,'さいたま']],ungeodata['result']['prefecture']['pcode'])).json()
+
 str = []
 #ロケーションurl取得
 for locationurl in data['pinpointLocations']:
@@ -71,4 +79,3 @@ image = selectimage(list(data['forecasts'][0]['telop'])[0])
 update(v.subviews[1])
 v.background_color = '#63bcff'
 v.present('sheet')
-

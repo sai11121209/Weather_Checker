@@ -1,0 +1,250 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 0}, {357, 736}}",
+        "class" : "ImageView",
+        "attributes" : {
+          "flex" : "WH",
+          "frame" : "{{129, 318}, {100, 100}}",
+          "class" : "ImageView",
+          "name" : "BackImage",
+          "uuid" : "1509E5AC-AFFA-4106-885B-914BF5F870D7"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 6}, {345, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "F2693A5A-F53D-4B20-BEE0-22D454649DA7",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "地域",
+          "name" : "Title",
+          "font_name" : "<System>"
+        },
+        "selected" : true
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 102}, {345, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "Tomorrow Weather",
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "3A358161-35A0-41CE-B36B-3114D0E8707F",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "明日の天気",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 62}, {345, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "Today Weather",
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "BF1E4F44-5D69-4A59-BA8F-CFF884F634FC",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "今日の天気",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 142}, {345, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "DATomorrow Weather",
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "15C406EF-B7D9-43AF-B7D8-16A2861AB4C7",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "明後日の天気",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 32}, {351, 15}}",
+        "class" : "Label",
+        "attributes" : {
+          "alpha" : 1,
+          "font_size" : 8,
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "F9DB9D24-40DF-48FA-A696-FA61726B2E16",
+          "class" : "Label",
+          "alignment" : "right",
+          "text" : "最終更新時刻",
+          "name" : "Update Date",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 222}, {345, 375}}",
+        "class" : "TextView",
+        "attributes" : {
+          "flex" : "WH",
+          "name" : "Details",
+          "editable" : true,
+          "frame" : "{{79, 268}, {200, 200}}",
+          "spellchecking_type" : "default",
+          "class" : "TextView",
+          "uuid" : "11859342-50A6-4F99-A4CE-55D7F00EDE7A",
+          "alignment" : "center",
+          "autocorrection_type" : "default",
+          "font_size" : 17,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{104, 182}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "2C1EEDCA-3B1F-4FBD-AC6C-757960216436",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "詳細",
+          "name" : "",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 605}, {339, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "Copyright",
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "BED90112-4C04-48EB-8777-1E1BB3235006",
+          "class" : "Label",
+          "alignment" : "left",
+          "text" : "情報提供元",
+          "font_size" : 8,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{201, 678}, {80, 32}}",
+        "class" : "Button",
+        "attributes" : {
+          "action" : "end",
+          "frame" : "{{139, 352}, {80, 32}}",
+          "title" : "終了",
+          "uuid" : "63ADF0BD-CDA7-40EC-B381-E7D6271A1E55",
+          "class" : "Button",
+          "name" : "End",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{6, 638}, {339, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "name" : "CopyrightGeodata",
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "E3C03304-FA34-4D45-8825-82280B243FC2",
+          "class" : "Label",
+          "alignment" : "left",
+          "text" : "位置情報提供元",
+          "font_size" : 8,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{96, 678}, {74, 32}}",
+        "class" : "Button",
+        "attributes" : {
+          "action" : "update",
+          "frame" : "{{139, 352}, {80, 32}}",
+          "title" : "更新",
+          "uuid" : "09C296B5-26E6-4EC6-A7C4-4CB66208DE06",
+          "class" : "Button",
+          "name" : "Update",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 46}, {351, 16}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 8,
+          "frame" : "{{104, 352}, {150, 32}}",
+          "uuid" : "4C8658A9-0136-4897-B6E3-864642B19CE2",
+          "class" : "Label",
+          "alignment" : "right",
+          "text" : "現在地",
+          "name" : "GpsData",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      }
+    ],
+    "frame" : "{{0, 0}, {357, 736}}",
+    "class" : "View",
+    "attributes" : {
+      "name" : "",
+      "enabled" : true,
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]

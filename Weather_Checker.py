@@ -33,7 +33,7 @@ def getgps():
 	
 #WebAPI:逆ジオコーディング
 def getungeo(gpsdata):
-	geourl = 'https://www.finds.jp/ws/rgeocode.php?json&lat='+str(gpsdata['latitude'])+'&lon='+str(gpsdata['longitude'])
+	geourl = 'https://aginfo.cgk.affrc.go.jp/ws/rgeocode.php?json&lat='+str(gpsdata['latitude'])+'&lon='+str(gpsdata['longitude'])
 	ungeodata = requests.get(geourl).json()
 	return ungeodata
 
